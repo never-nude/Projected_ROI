@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ThreadKeep — 5-Year Investment & ROI Projection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ffffff;--paper2:#f5f5fb;--ink:#1f1c2e;--dim:#5a546c;--faint:#8b84a0;
+    --violet:#6f5fd0;--violet2:#5443b8;--pink:#d4537e;--teal:#1d9e75;--gray:#9b958c;
+    --line:#e6e3f2;--line2:#dad5ec;
+    --disp:'Space Grotesk',-apple-system,sans-serif;--body:'Hanken Grotesk',-apple-system,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:#eceaf3;color:var(--ink);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .page{max-width:880px;margin:28px auto;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:48px 56px 40px;box-shadow:0 30px 70px -40px rgba(50,40,100,.4)}
+  .top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:30px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand img{width:40px;height:40px;display:block}
+  .brand .nm{font-family:var(--disp);font-weight:700;font-size:21px;letter-spacing:-.01em}
+  .top .meta{font-family:var(--mono);font-size:11.5px;color:var(--faint);text-align:right;line-height:1.5}
+  h1{font-family:var(--disp);font-weight:700;font-size:34px;letter-spacing:-.025em;line-height:1.08;margin:0 0 10px}
+  .sub{color:var(--dim);font-size:18px;max-width:62ch;margin:0 0 26px}
+  h2{font-family:var(--disp);font-weight:600;font-size:21px;letter-spacing:-.015em;margin:34px 0 12px}
+  .kick{font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;color:var(--violet);text-transform:uppercase;display:block;margin:36px 0 8px}
+  p{margin:0 0 12px}
+  .summary{background:var(--paper2);border:1px solid var(--line);border-left:3px solid var(--violet);border-radius:0 10px 10px 0;padding:18px 22px;margin:0 0 28px}
+  .summary p{margin:0;font-size:16.5px;color:var(--ink)}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 30px}
+  .card{background:var(--paper2);border-radius:10px;padding:16px 18px}
+  .card .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--dim);text-transform:uppercase}
+  .card .big{font-family:var(--disp);font-size:30px;font-weight:700;letter-spacing:-.02em;margin:4px 0 2px}
+  .card .note{font-size:12.5px;color:var(--faint)}
+  .legend{display:flex;flex-wrap:wrap;gap:16px;margin:6px 0 8px;font-size:12px;color:var(--dim)}
+  .legend span{display:flex;align-items:center;gap:6px}
+  .sw{width:20px}
+  .chartwrap{position:relative;width:100%;margin-bottom:8px}
+  .cap{font-size:12.5px;color:var(--faint);margin:0 0 24px;font-style:italic}
+  table{width:100%;border-collapse:collapse;margin:8px 0 8px;font-size:14px}
+  th,td{text-align:right;padding:9px 10px;border-bottom:1px solid var(--line)}
+  th:first-child,td:first-child{text-align:left}
+  thead th{font-family:var(--mono);font-size:11px;letter-spacing:.03em;text-transform:uppercase;color:var(--dim);border-bottom:1px solid var(--line2)}
+  tbody tr:last-child td{border-bottom:1px solid var(--line2)}
+  td.tot,tr.tot td{font-weight:600;color:var(--ink)}
+  .src{font-size:12px;color:var(--faint);margin:4px 0 0}
+  ul{margin:6px 0 14px;padding-left:0;list-style:none}
+  li{position:relative;padding-left:22px;margin-bottom:9px;color:var(--dim);font-size:15px}
+  li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:2px;background:var(--violet)}
+  li b{color:var(--ink);font-weight:600}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
+  .foot{border-top:1px solid var(--line);margin-top:34px;padding-top:16px;font-family:var(--mono);font-size:11px;color:var(--faint);line-height:1.6}
+  @media(max-width:680px){ .page{padding:30px 22px}.cards,.two{grid-template-columns:1fr} h1{font-size:27px} }
+  @media print{
+    body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .page{box-shadow:none;border:none;margin:0;max-width:none;border-radius:0;padding:0}
+    h2,.kick{break-after:avoid}
+    .chartwrap,.cards,table{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="top">
+    <div class="brand"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAj4ElEQVR4nO196bMkxXXvL7Oquvvus+87zAwSDAaxGIOEACNkFqEFWzKSwyFb4dD7oHiO8DdHOOJ9eX/A+/ocCr1479nSQ3qyUSADkiwNi4xYhCQEYh9gZphBA8yduTP33l6qMo8/ZGXt3V3dt6qXe/MXt29XZVdmZVX+6tTJc05mMiIiGBisEvBhV8DAoEgYQhusKhhCG6wqGEIbrCrYw65AJ5j+6miCMTbsKrTFSBE6L4FH93auLrRrjWQ7jRLBh07oLBIzBoDUDSVSx5A+1gjtwYIpwjL438wXKEy1DRBvw2GTeyiETj3hCMkrpIQQBCEJQkqQBAgEo30MF4rIDIwDFuewOINlMVicByQPhE6QZ/DkZoN0rGQRWRLB9SRcTxFZkk9eZlSLUQX5/xgDOFPEdmwOx+bgjKVeooMk9kAIHXtqoW6IJyRariKyVikMgccTuu0YU8SuOBy2xYO21hgEsUsldFbRrifRbAl4QhoSr0LoNrUtjmrFgmOnLcNlErs0QieL9YREo6mIbLB2YFsctaoF24oTuyxSF07opHohiVBvCrRcYSTyGoRu84pjYaJqpXTsooldKKGTRbmeRL3pQUgyRF7jIAAWZ5io2ik1pEhSF0boZDGNpodGSxRRtMEqQ61ioVaNW4yLInUhhI4WQURYbnhoedJIZYNMEICKzTFZs2NELoLUKyZ0NLuUhKWGC08YFcOgMwiAbTFM1RxwXhypV0ToaFYhCUt11+jLBrmh9eqpCQdWQaTum9BJybxYdyHlyrQXxvw4DtCqNoewVXBx2ltIhBWHJXDOMD1RjKTui9AxMhNhadmF14dkZgzgXHkJhQe0mgzNhvr2XIAGZLJO3wDq9GOO8nSmpK+s9/KolwxtD6UOe72XxTlgVxiqNYbaBFCtMdiOan0pe283AmBzhqlJB3yFOnXPhC6iA8gtFTW3eIHhg/c4zpziOP8hx9IiQ6vJILwCnnxKbfhSJatxCfGvbEKn07PoRkGkYOr8FN+Pp3eva3A+SqRF96nb9cavNXXWdtcbLYsBnAOWBVRqwMwsw8atFnbu5dixx8LMOuX2Fj0YuYrqKPZE6OShdd80l/eUnKub9P4pjjdesnH6OEd9mYEI4FrdCNSOFSBBEIr/S/7SpRETx+rkzNuWjAr0c2YQNp6eUbcORNTigxIEzDx/7BIJvC2huz14yQcnjIJUUpnAGDA1w7DnEgtXXONgx14LDAwyp8QmKJPexApMen0T2nUFlhpe7hNZFuH8PMMLTzs48aYFz1NPeOEe0CwyA+0JksiTxbEsSZUlmdsSNIMg8WpmPGhJovpbjAizcME6SOZYjkiyC4ZFHTGcIHq0AumrywrfzX5YpQSER7Ad4OBHHdxwawUbt6j2zoupmg3HsYL9Ugid6gQuu5A5nwVuEd55zcJzjztYWmSwLZTX6YsQJNertGw1A8hQHfpTMyQYpuHiL+UbmCDPz8l8Tb1zWzAQjmMaD2AvWFLUxi6jfzKHaSqPcAnTsxy33F3F4SOV3CoIZwzTk/11EnMF+FPiBjRaHgTl6wRyi/DKr2z88kkHRICd44x96c451Ay117+akZbMyYaN5GlbRhsVJl1QWLPIQ0cgWNKDDQ/RFggkuL+dbBsGAoeAJD0yOqte3cgcf/hYMi1SWQbAdhiWliQe+V4dSxcJH7uxmovUghTHJmt2eBaiXKTuecSK5xFabr5OoGURXn/RxnNPOGBQOnQWpFQfEMAtRXrOe1RHMqVne8kJtNEV2xGuzVMWL6KztG33nGYVrfKzWIoEgyMB8giCKP5zF9gkAQuoVJivR7PYBYQ0jFaKZVJYSkAKgucRhKCg3ThPXqSyiJAEHnu4AacCHLmuCtFF/WAAWq5ExSbYdm+v8q6ETlo1Gq18UXOcE94/zfFLn8wsg8xSqOufWwfs2ANs3QGs2whMTgGO0/4BaI+0XOqMqFyLpvbwisi6Gf28YXKciMDAl2w4/0iQyzJ84v3xfZlX64tsV0hs38vx9S9Pr7ieUhJaLcLSRYmzHwi8e8LFibdczH/ogQGwLF8J8u8NY4o7jz1cx8YtFrbvsSG7SGoC0GgJTFkskMx5pHQPEloNlfJEPunsusDzTzpoNQEr4yyeB2zZDlz9h8D+g0C1lr8mxaHdlYyi48OvU4WhCQJJqUxDQFTLSUMnSgnLJsytK3Aqlu3AgUPAdTdNoFEnvP5yE08dXcLpk66SrIEZXknqZh144tE6vvDVaVg26/hAMagYeteTqDgcedukI6Hj0hloufm0em4Rjr1s4cwpniYzAUIqIt/wSaBSzVWkgQ+SAEk1bI1RwBeARd42gb04si0l2Ao9uZ1Qm2C48poaDl9exc8euYinH18Gt0KfKEEJtpNve3j1ty1cmUP1ABTnHJsHL6NuUjrn40rwhPrkgdsCXn/RztSBhQCuvQm4+Q5D5n5BpCS0lNIntwRJ8j/+GE1KbBOBBuB6rdYY7vz8LG7+1BSER4gpcL768cIzTbQa+bgU8i7f8W0JnSWd8xSpdef59zm4Ff/N84B9lyrJbNAnCJAkIUkRWeb4hMeVJ6GTuPXOGRz6aAWuG9GHiMAt4P3TAqeOuyl+ZIHgcy9qlepwHV0lNBFBSsqtO4MB775lITl0kAhwKsANt/TT2TOIQktc6UvduESWkTTpt58vwQdIaM6B2+6aQaXK/POG5xaCcOxVNxeftC4tc9Y/k1pZA1zzqV8Etwm8f5qnSCsFsHuf6ggarAyBxJWqoaWvfkhf+EitekRUEOmTe5DYsdvBgUMVX/UIKc05cOq4h2YznwokCanB1e2upaOs1JnyBuwzBiwtMixe4Cn9mQAcOJyjEIMuoLju3OaTUjvk4AkNAB85UlOBZpH6MwYszEtcXJC5fA1KSmsnVudr6Pryl0QQOaceYAxYXGBwW3GnCBFQqQDbduYqxqADlCoaStzwO1RDwk9alx40du11UK2x0Inl26ZbTYmFeZnpn8iCEPn6AKnikk+AFJRT3QDACIsX0tFVRMDEFDAzm7Mcg46QCd1YS2xN2pTlQx87BAk9u97C1DQHRUikQ0sXzuWP1JSkuBhF1vW0tUPrg4XsbZqu+nL6SCLf+1fJWYhBR2iCgmfodW22aQg6NABUqxxTMxznznoAaVc6AaQ8jdmu1jQIios2Otuiu3oKRU7xrKe6bTUzBhgRUK2WECq6RqH15FgwRxdeaL160GAMqE3wzMi8ZiOcJjlP4FEeLnb1FMoeh1bJNt6fPDZHgxwg+BYNCUhfY2RQr8GA4NEYFZ/pCdPZIGFZfvUSPnrPzV8fBgSmu07kjxFav5LCb/RkjPdt55npRjoXB22eY9yXuBnSL76vPYvDIXRYlzB+ox1XOkFPtayDnRhjKYJ3j+UY5j0wyAAhNM/1pnIMfc2a4Pmi3tkcZOt8oV0Ibfg8itBewTA2M/ghwmsWtjtpa8cQZ36NvEVWwqluz0FHK4ch8+iBgMAryAKJlT4msPkGiUOU0BTWqd0ImB6K6t/K0fMNME/AQBDGafjD5HPceB3vMTxQXEUKk3srZSUqR28nAQyjB4Mgci7hfYu+1lWHKdRIiOQKX/YrQVJ31eGskZScprtuKGwVLKNvDw7KYiHAIsNddXx/YLCLWKpoJKwcGiFRGLQdujgrWEDoofeADXJCh4oSCDI+1jV2VGJfSnX8UEH+n7KJF8W4qHQf3DqF5nkpBhQG+DNw6ECbmK0/QwsZptkuoC/l0/dXghShS7loQ+ZCEQ3oj6cnjkvmGZbKEahDlExaWbEZenemhC6U0zEvlnEXrhS6gydJgkWsBtG7m7Ut5bA7hYn2X2FV2undA1I5jIguElJqs52O/qVAzdALpQdCyXcP05DiobOgdegyUA6hY/WlyH+DIkD+8Csg/s4jSSAhwBwrnFTdZ/YwhmBlIWppLKM2JQ9XHf4NXI3QI1KiQ61EywWfrWLu5kMqSlKIxGiVYTtWdMcwXoeilVAbKMtkF5HMhtcFgoJRKfCdJ9TyUNu3CXv+9g5MHtyKc1fvwbv/+BjEUhPcsQHoESvDUjkoYuWIvryLI4buIBaqcujqJv2GZmn6YiGlGi/IBINseVh3w6XY/Y3b4WyYAgCsv/UjqGyfw/H/8WM0TpwFr9q+NB+e2S6+Xd7boo3KkTUncC/IMNAYKV0MyNehPQHhedhy37XY//f3BGTWmLpsBy797/dh9tp98OotiCGNKdQo0pNMHV775erQsaswjC4KouWCVS3s/a93YNfXPgnmZA8HqmyawYF/+Cy2fv4ayJYH2cuiJ0UiyoGSYyS6xkP3ijL0I4MQUkhUd6zD7r/+JGau3NP1eF6xsfvrt8HZOoeLLxwfijsg6E0RS3G757K65CnebKejTRKJZjnOYmBPV3Hwv30Bzvqp7gdHsO1z12DDTQcxHAdXesGhMbJDJzuFZqBAkeBVB7zq9JW3snm4E6MoHpfrlyhNh45V2zDaIBPFE6MECZ0YSm86hQZaDU3b7wpHCRKaMjYNmQ1ClKl0FEzoSPyAIbNBBLF+VYkDsEvRoaNOlSAIxfB6zSJJ5jJRWvhou5VZDdYqynWoaBQuodvV2XB6LSODzCVF/5XUKTTS2SCCFAfKI0U5nsLItgnvNwDa9KtKQCk6dHzmVkNmAyDWqyqREqVG25GRzwYABumbKNH1vbr06OS6Mb1ALWc8nHOPAgKz7QBE9OBGfWdN1Dfi+PAM4eUXJE6fFKgvCzgVwradDJdf5WD7rs63znWB138ncexVgfPzAlISZtcRLrnMxkevdOBUOt+PM6cJr/xW4r13BRp1gUqVsH0XwxVXV7Bl+zgvh1BufE9JhI5K5/FTO4iAZ5+UePZJgeUlAUCCSEAIiWOvCTz75DKu/0QVt945DSuDW++/R/jJQwKnTwh/dLb6PvmOxIvP1/HMExz3/Nk0duxOR81JATx1VOL5X3hoNJRo1+d+81WBZ55cxo231nDz7VO5l0QbBcQiLwNPyxiY7WLh0FRuj7Ys/MdPJZ74iYdWS8CyJRgXAJPgXMK2JVxX4OgjF/Hw98+n2uTs+8CD3xZ474QAtyS4pfKCSViWSjv5ThP/9D/ncea0G8tLBDz2I4lfPObB8yQsKzw346ourabAj39wAT/54YUB3pEiEJfMAx5TWABS/vrxoPXxY4Tn/sODxZV0lFL4M3eqbSVxJSxb4qmjF/C73ywHeYUAjj7iYeGcIq5esjjMr0ZeWxZh/mwLD313HiKy9t6br0r8+mkPluWvBhs7tz/S2z/3Yz9awBuv1Ad/g/qBL9UoIZnLYETJ8dDZeyMLAn79tIDb0oSKfkRsm0hCSImf//R80Gk7dZxw/C1FZiGzHwYpJaQQsCzCG68s463XFSmlVOfWK1zp40VGXiIJz/Xw858uDPFm9YIBxI36KN9TiPTuqGJ5mfDeuwKMJwkpMonNmMSpEw2cn1eqw/FjAp4rgzyazCKD2ERKdXn9ZSXhFy8Qzryn1IusByFWDyHBGOHE23UsXhjSwNe+UH48R/GEzvDZjwvqS0C9LkBSxIgrImqDEHH1ob7s4eIFtTjjwjlFOhHNKyLEFsJfs1pLWoH5D1sAgKVFQrMu/XPHJbMmc5DXf0MsL7lYXGyzMOQIQfWrKK5Gl8SLcjyFka3xoTPALQIQkjVLOpJPRi09AYJlKRMc56HkDqQ0hZJWT5gY5BcysJJwCyASsXOT0HURkCLMq8lucYKVXB55FJFySVBppC5Hh04MuRkXW8fUDMPkFMHz4hJaSkUo9YlIX09icoph/UZlftu0lUEIP6+Wxr7em5lfCGzfpRZAn51jqE2SkuL++UT03DLMS1LC8wSmZy3MrhvcnPUrRbwrOFZWjnQvdhw0j0qF4ZLLLLit9p3B6Haz6eGyI1OYmlZi9tKPOKhNEDxPT5AYzSNi254nMDHFcPlVMwCAiUmG/QcttFqKsOTbn9OdSlVOqylw+R9Mo1obF2O0NnVg3KwclPg/BkyO4PpP1DC3AWi1MqR0ZLvlCszOWbj97s1B3g2bOK75oyqaTRGR1NnWkmbDxcf/eAO2bKsG+f/olhqmpglu23Or71ZLYONmG7f+yaZh3KI+ELdylMmKwQT4jxGn59ZxfO7+WUxMAo2GgPDSakKz4aFaBb7yN7uwZXs1lv/mOyZx5bVVNBoCrqs7iGF+1xWo111cd9M63PX5rbG8GzdbuPfPZ+BUCM1G5KGIdEgbdQ+TUwx/8fXdgaozDiBfMpcdzlFip9D/P4YDCg8cquCvvrEJjz44jzdeWUajHhLLtgmHr5jCZ/5sG/ZdOpnK6zgMf/oX67B1u4Wnjp7H/IfC18mVo2Zug4VP/PFm3HbXZth2ukN32RU1fPUbm/CjB8/h2GtLaDS8gNCOQ7ji6ml85ovbsGvvxCBuRYGIz54VyOmC+7Tlx3Kk9sYD23c5+KtvbMXpk02cfKeBxQseJiY5du2rYfe+iY7r6lk2wy2fnsV1N07hnWMNfHCmCSLCpi0O9l86ienZzrd9974Kvva3W3HqhDr38qKHyWmO3fsmsGtvreArHQQSfNAdqhKIUd6SFBhP6ZzEjt1V7Nhd7X5gBqZmLFx+1RSA3uahA9RSKbv2VrFrb3/nHiUkF72Fv10GynN9rwIyGxSLpG2jDHaUOKZwdQX4G6wMsei6EoVdqbOPxlLHwRBtUAoosRMLMS4YpbuZ9OLpBmscgV9l7KLtUPYoG4NxQywEolyU5lih+D+DNY2Eb5Ay0gpCiSNWgn8GBtnmuhLoUeLso9EncvxiOgwKRoQChJUuG9gepUbb6S1D57WNdGhSOr0olDq3XZkjEwzGCL76OYiAiNKsHGm1o5QzGYwjSnxlF0voWMDOABz3BmOCZNhoeYpoeZ7CVF0Nqdc0Av6qDmFZdoLCCZ2uY3k9WoNxQnIkUzko1fVtXN4GAGLDCcd/0SDjYDGIMVqnlCPuSrJypIM5DKXXLpJtX6YluryVZJMWDsPoNY14jE95ZCh94U3A+FYMFKJkHp946IRkLtfRaTA2SM5tN+ojVljCqZI2pBusWUTm46B4MoAkd1aGwlSOTMpmXYXBmkOaBkmLR3EoREIzxhCdryz0ApEhtQGAqCaaVjgYfA4VgMI7hYwjQ80w3sK1jGBKixiZCYwDrOCpkwolNANg20BU+9c89jzD6LUKzwsXWozGJjkOK3wqsMKj7ap6pqqomsSAep2CtUgM1g6kJCwtemCIvrgVoycmi7caF1wiw+S02opo1GAMWL4o0WwYKb3WUK9LXFzwlCUj0fwzc8VbjQslNElgZo6BW4hZzhkDlpYkzp8bpwVuDIrA2Q+auHjBA+ea0QQigmUD6zc5K1oyOguFEZoxBiJgdh1QrUYsHT6vWy3CybcNodcajr22hGZDImruIgJqkxbWb3IgiQqzcABFS2hS65TMbQgXXNeqB2cMr73UMtaONQQiwm+eXQCPsIyg9OpNWyqYWzfCElrDdoAdexhIxl2clgWcfEfg7TfcTtkNVhFefeki3nptyV8lzA8YJUAKwv5DE6hUil/Bq/iZkwjYe5DBriAVgSIlcPTROppNI6ZXOxp1gR888B6EJDAWDssjApwqx2VXTpdi9Sqe0JJh83aGbbvU2tcqUX1ZFnD6hMDD31+G5xpSr1a4rsR3vvUujr+5DNuO+9k8T2LvJRPYua9WCqELtZswxiAlwbYZjlzHceq4ABFCGyQItgO89Ksmmg2JO+6dxIZNVpFVMBgy3v99E////57Ci88vwK6wGJkJBM6BG29bD9vmEB5860dxKNwQyJiSzHsv5dh/iPDmKzLuPQRg2wyvv+zi9MkLuOr6Kq64uorNW61Co64MBgciwu9PNfDcU+fx1NGzWDjvwqmwlAHAbRGOXDuDy66chvCKtW5oMFKIVU59ANeTaLR6N7VJSWCccGFe4gf/7GFxgZRtOnIOQNmtPUGo1Rg2b7OwbaeFjZstzM5xVGus7dMbC28hYGKKY+t2u9QH4uKCwIcfeCDZXVVKHZEcvdMjVhqKG/fQ9VmDiOdXSkKjLnB+3sWZ95o4+XYdp082sLzswbYZOE92nwieR1i3wcHX/m43Nm6uQsr+pHOtYsGxORhTGkH0oWCMlUNoXQa3CCePSTz6fQ+tptKhUzP5++cSUt0oVbHE0xutX3Kf1Brdlxyu4LNfmsP0bPHu1F88fhFHH7mA5UUZOX96AEOyEWMciuwESSkbpv87dUhL3ouAaYmY48S4ztiQ1GRa4oFL1otS91+lSamumXMGy9Jxzel5WTxPolrj+Mp/2YmDl4fSuR8JPURCq2/bJrz1msTPHvJQX1IeouSxiRQ/Pb4fphHibaPO1WoQrrlxAl/4ylzP9e2Enz68gJ/92wV1A3m8PsFeMiQytcBkxjXEykgSy0+N7ucgcqp8ihybKJ8y7mOqrslriVxP9vWlH2rXJUxNW7jvq9tx+VXTcF1NxP5CRrsRupRpDFjguGfwPGD/YY67p2w88YiHM6eU+sF5VkhpWuoFW5mvTC3RAafC8NbrLdSXZSFBL1ICjz54Hj//94uwbN2xzUHmNnVsv5+V7O/EI3o65UZYlQziJ04UpETKZ5S+vnQDJX+PniX+gEhJcF2JPQcm8Nkvb8WeAxMrJnMelDYvR5TUwgO27eS49ysOfvucwEvPCywuAJwrqcdY+pXWlsztXpeMIARBeCuvu+cRfvjdc3jmySXYTjsyU7JK0CIx6xrUdaTpmCRC5hsqdp6o9G1/j1JkzpSsflobydz22hLXR5E6S6FUkdn1Nq6/eSNuvG09JqesgZAZKHnmpBipBVCpAtffbOPwEY43fidx7FWB+fcJbktn8PVnfxtA2HDJRk9Gb2VK8N7RahL+9dvz+M2zy3AcXXTGazhJsiS5O+ihQanq1iTIgThrMsmcVgOiD3iS+MlriJ0v6yHLUKHi2UKVUunSKr1SY9i2q4rLPzaDP7huBhs2VSAE4HmDITMwgFWwoqQGACEIM3Mc136c48rrLcx/IHHmFOGD9yQWzhGWFyVaLUB45LvPk2RW6kBcEqdEZV+oL0t87//M45UX6orMLN7guhGdiMuW9LVFq0Dh9ard+L6+H1nPYFwyZ50nLCtOOBYjXHA+iuTNOk+S5/DX5E6lhxucM1g2Q7XKMDVrYcMmBzv21LBrfw1bt1dRrXFIqd50Ws8dBJmBLoQu6vxJUhOUrdqygK07LGzbqW6j8JSt0nUVYWVk6LsGt4ATxwSOPtSCZanSVi6XgYsXBB741lkce60ZSuYImZWZifDJOydx4CMVyEIDB3u4giyi9XW+jADlnGCcwbYZKlWGSoXDtpnvVFO6s+fBf9uGnbaiyNytmDaE7v9i21eEgfxQwWjpUfcnY0ClylCtInNoDoFgWcDZM9FwxPDXfsfznJv38J1vnsXJt1twKkjpp1IQLIfh9s9N48jHqhCy6JFw4wn9vIvIw62Iy2LEK0cyZ5fZVkKXUQd9YYrY0UpFpLcWylnPE0FFn1DilbsCfPB7F9/+5ln8/pQbkDlashCEao3h0/dN4/CRKoQfLEix+q9dxHkyCCJ35mbpOnQW4hcaJ3OnyhLgv8qSOqCSp70S/NTJFr7zzbOY/8DLlMzCI0xOM9z1xRkcOFzxX6Us8TAaDILEeWHrSgxrLe64YRwpE1LiaN31UYgeG2znu4533mzi/33rLC4sCNgOUmT2PMLsOo57/nwGu/c78LyQyCbmRGN07oXm0VAkdCd0ln5KhCeMSuFvOaXm679r4Lv/+yzqS37gVJLMLmHDFgufuX8G23baPpl152b4UsigPUaO0P0gaVbqhBd/vYx/+adzaDWlcsNnkHnLThufuX8GG7dYAZkNkccDAzHblQXquJXGL3+xhIceOAfhKWtJksyuS9i1z8Y9989ibh2HMGQeOfRlttO67Cgbp2IUJq09t6fzU0cv4uF/WQDgh7Imydwi7D/s4O4vzmBqxoIQg/NuGeSH5mS7JkkROtpBZEmLwightexFex366CMX8O//tgCuI+YyyHzoSAV3/ukMqjVmyDyi0HwM99Nt01mHZsO1gHQFJbYz3Mg/+sF5PPHjMGIuRmYCXI9wxbVVfOpz03AcBimNmjGqYIx17fcHhM4iLgPAGTDqU9JlqRpCEH74vfN4+vFFFTHHgNjE26TszFffWMNtd0/D4oCU4SgZQ+bRA2/D52hbdbFy+A0sRlNCZ5nvLIvBdQn/+s/z+PUzy8ph4h8WJbMUhD+8ZQKf+PQUAEBS8XEHBsVCCZvObdPVbGeNbOPGdWjlTifUlyQe/PZ5vPirupquleLdRZLq2I9/ehI33DLpq+JGMo8D8nCxA6FVCBHnbCQ7hpTQmRlTKsQD/+ss3j2ug4ziZJZSxVvfevcUrrlpwg+MMpJ5HMBYdFBt+3bqKqEZU0+GN1KMzq5Ls0E4ddJVrmwkIuYkYNnA7Z+dxpFraxBeGBkGGDKPOiyWz83eMdpOx5JbFoOXY/j+wBCTzpGxiQyBwyQKPVrmT+6bxmVXViMjKAyZxwWWFfYIc0fbRWOWgxBPAiwej2EeDVCsoxdPi4d/Tkxy3PWlaVxyuBIEGRkyjw8YQg6ygNTZ7ZcrlkPNu8DgjYC1Ixl4mtxLhn9Oz3Hcc/8M9hyowHNhyDyGsKz2kw4l0dVsp0CwR4TQGvFxcmnJ7HmE9ZtUxNz2XY4h8xjDtqKdwT7NdnocYKBHc/WUyBHQpeMh0xlkdgmbd9i49/4ZbNpqhzozDJHHDZwzWDyuP3dqw46xHLoAJQwZHIuhOQKEDkBpNcN1CTv32rjn/hmsW28NdAi9QfFwLBYRRvHfeo/lUNn8b6V2uGKYUlo9XbWabxv366Xhtgj7Djm4+0szmJ7hEMLEZYwzOGc9qRtAlwnPQzKEZVXs4RGDMWWC27rLxo69NtymBEllY261CAevqODeL89iatoyZF4FCLjGwki7bm3JKCOUrt3kjXq76cqhdRC1i/vcWYHHH1nC6XdccAs4dKSKj39qEk7FRMytBtgWQ9Xhgb9At2VycsYkMgkNhKSOfksikCRIAhotMRR3uH64GFMP19JFCc6ByRnur6ikXieGzOMLxtQsoyp+nYFnOMHatW1XQuvtpJT2hJLUw0BQH4Sd1nAKBEPmcUfV4bB1Z7AH6Qx0MdvFrR2hr5CIwbZU/LA7JNWD6V4h6f20F8lg/OBYuiMY9t+S7dmpfXNNpBwvIAwScWwGq/gJ83PXJ7xgQ+bVAIsrTgHh21Yjb7t2GfXdTkqH071UbI6mKzFoS54h7uoCZ4pLWjq169R3a/fc8jUsSJ1IO28YV73RglfnMlhD4EzpzcwPQOIsLqF7EV5dCZ1alCXYjXpwGCqG1AZ9gDOgos1zSMaop/nXtbx+KpHseWqJbUht0AuinEnyqV+Vsq3ZLomkGU9/R015alui5RHEqA8VNxgqLK48gYzxtmTuVToDfenQCX0a2jXOfBclR8XmER+8gUEctsVQsTkY49AEYkFAXf9kBnqQ0Bpphwugwkzj0hpQq8S6Imv5NoO1CMaiduYsqZxWN3pVPVY0+2gYM60rGAbdEwG2pfQkTxA8o4KsadhcSWY9t0aoZgBFhiv0LKGBuJTW+2rGAIJe2VW7phFZ+ssVNHB7tcFwwX2pzLlP1og1Q6kZLFQ5erQ5Z6EvQgMdSI1ER1H9GBwjJMETMMRe5eBMvaEtHonBiJE5viJCEWQGVkBoIAepQX4EXFRaq30hyV+wftRGkxv0Cwa1OrDFFZGDMAkWTIKrVg5GOWQGVkhoIJvU+jslsdUudHgcQUttJbENuccPmsScKSJrBwm0g0R7lNtI5CLJDBRAaKATqYGotEYWsSPHS9Jx1/AfAj+gzrB8JMACciIMf2AscKZFzblRIoOlpXL8+Oz9vupYBKGBNKmjaVGC604jEqRPbkePhyH2UBHYiGPEDH5NhEOEmVji+E7B+UUFmxVGaKAbqYHotF2hxA72kvMTdFnizWA4SBNaS+NQZ9YuN3SVyu3S+q5dkYTW6IXYMZJHnTbBv9hGl/P2XlcDID+fWPAVzRKNT8eQiByUWQahgWxSR9PTqobaD/qMwc/tq2f4Ww460ywikVPu6vCYTkTulL5SlEZojW7EVttAWtUI04zmMQKISeUkgVVadH/QRA7KL5vQQHtSZ/2WpTcbVWI0kOZies7mToQdxCijgRBao9upOhO/Y87+KmSQQCcydsjVhaiDHC43UEJr9HrKkV1Wbo2hV2IOY9znfwLkFITHDEEUDQAAAABJRU5ErkJggg==" alt="ThreadKeep"><span class="nm">ThreadKeep</span></div>
+    <div class="meta">5-year investment &amp; ROI projection<br>Prepared June 2026 · for review with Chris<br>Michael Conor Kushman</div>
+  </div>
+
+  <h1>What it costs to launch ThreadKeep —<br>and what it could return.</h1>
+  <p class="sub">Three funding scenarios over five years. The cost side is drawn directly from the conservative launch budget; the revenue side is a modeled range, with the reasoning laid out below.</p>
+
+  <div class="summary">
+    <p>All three funding tiers recover their investment <b>during year two</b> and finish year five well into profit. Modeled five-year ROI runs from <b>~467%</b> (mid) to <b>~689%</b> (high). The high tier returns the most both in dollars and as a percentage, because its added legal and security spend is what credibly opens the less price-sensitive professional market.</p>
+  </div>
+
+  <span class="kick">Five-year outcome by tier</span>
+  <div class="cards">
+    <div class="card"><div class="lbl">Low · organic</div><div class="big" style="color:#185FA5">496%</div><div class="note">$8.6k invested → $51k revenue</div></div>
+    <div class="card"><div class="lbl">Mid · marketing</div><div class="big" style="color:#5443b8">467%</div><div class="note">$30k invested → $170k revenue</div></div>
+    <div class="card"><div class="lbl">High · upmarket</div><div class="big" style="color:#993556">689%</div><div class="note">$51k invested → $406k revenue</div></div>
+  </div>
+
+  <span class="kick">Cumulative net profit over 5 years</span>
+  <div class="legend">
+    <span><span class="sw" style="border-top:2px solid #378ADD"></span>Low — organic</span>
+    <span><span class="sw" style="border-top:2px dashed #7F77DD"></span>Mid — marketing</span>
+    <span><span class="sw" style="border-top:2px dotted #D4537E"></span>High — pro / upmarket</span>
+    <span><span class="sw" style="border-top:1px solid #9b958c"></span>break-even</span>
+  </div>
+  <div class="chartwrap" style="height:300px"><canvas id="line" role="img" aria-label="Cumulative net profit by year. All tiers negative in year 1, crossing break-even in year 2; by year 5 low about $43k, mid about $140k, high about $354k."></canvas></div>
+  <p class="cap">Year 1 is the build-and-launch year — all cost, no revenue — so every tier starts below the line, then crosses break-even in year 2.</p>
+
+  <span class="kick">5-year invested vs. net profit</span>
+  <div class="legend">
+    <span><span style="width:11px;height:11px;border-radius:2px;background:#B4B2A9;display:inline-block"></span>Invested</span>
+    <span><span style="width:11px;height:11px;border-radius:2px;background:#1d9e75;display:inline-block"></span>Net profit</span>
+  </div>
+  <div class="chartwrap" style="height:230px"><canvas id="bar" role="img" aria-label="Five-year invested versus net profit. Low $8.6k invested, $43k profit. Mid $30k invested, $140k profit. High $51k invested, $354k profit."></canvas></div>
+
+  <h2>The numbers</h2>
+  <p style="font-size:14px;color:var(--dim);margin-bottom:4px">Investment — from the ThreadKeep Launch Budget (Conservative NY revision). Real figures.</p>
+  <table>
+    <thead><tr><th>Cost component</th><th>Low</th><th>Mid*</th><th>High</th></tr></thead>
+    <tbody>
+      <tr><td>One-time launch</td><td>$6,336</td><td>$16,488</td><td>$26,640</td></tr>
+      <tr><td>Subscriptions, 6-mo build ($300/mo)</td><td>$1,800</td><td>$1,800</td><td>$1,800</td></tr>
+      <tr class="tot"><td>All-in to launch</td><td>$8,136</td><td>$18,288</td><td>$28,440</td></tr>
+      <tr><td>Annual recurring (after launch)</td><td>$99</td><td>$2,349</td><td>$4,599</td></tr>
+      <tr class="tot"><td>5-year cumulative investment</td><td>~$8,600</td><td>~$30,000</td><td>~$51,400</td></tr>
+    </tbody>
+  </table>
+  <p class="src">*Mid is the midpoint of the budget's Low and High columns, which define the two ends.</p>
+
+  <p style="font-size:14px;color:var(--dim);margin:20px 0 4px">Revenue — modeled demand scenarios. The estimate layer.</p>
+  <table>
+    <thead><tr><th>Assumption</th><th>Low</th><th>Mid</th><th>High</th></tr></thead>
+    <tbody>
+      <tr><td>Net per sale (after ~13% fees)</td><td>$16.50</td><td>$16.50</td><td>$16.50</td></tr>
+      <tr><td>Sales / month, year 1 → year 5</td><td>25 → 75</td><td>60 → 290</td><td>120 → 720</td></tr>
+      <tr><td>Units sold over 5 years</td><td>3,120</td><td>10,320</td><td>24,600</td></tr>
+      <tr class="tot"><td>5-year revenue (net)</td><td>$51,480</td><td>$170,280</td><td>$405,900</td></tr>
+      <tr class="tot"><td>5-year net profit</td><td>$42,849</td><td>$140,247</td><td>$354,465</td></tr>
+    </tbody>
+  </table>
+
+  <h2>How the projection was built</h2>
+  <span class="kick">Costs — grounded</span>
+  <ul>
+    <li><b>Source.</b> Every cost figure comes from the budget tab's "Conservative (NY) Revision," which already pads NY-metro rates and adds a 20% contingency. Low = $6,336 one-time; High = $26,640.</li>
+    <li><b>Build burn.</b> AI subscriptions (Claude Max $200 + ChatGPT Pro $100 = $300/mo) over a 6-month build add $1,800. The sheet flags build duration as the dominant controllable cost — every extra month is +$300.</li>
+    <li><b>It doesn't end at ship.</b> Annual recurring runs $99 (Apple renewal alone) to $4,599 (renewal + OS-compatibility passes + periodic security re-review for a tool holding full message histories).</li>
+  </ul>
+  <span class="kick">Revenue — reasoned, not guessed blindly</span>
+  <ul>
+    <li><b>Price.</b> $18.99 list, netted to $16.50 after payment/merchant-of-record fees and a small refund allowance.</li>
+    <li><b>A paid market already exists.</b> Competitor ChatKeepsake sells at ~$10 and does less — person-search only, no full-text search or JSON export — leaving clear room to price above it.</li>
+    <li><b>What each tier buys.</b> <b>Low</b> = organic only: a founder-built landing page, word of mouth, light SEO. <b>Mid</b> = content/SEO plus a few Mac-press and review placements. <b>High</b> = the legal (privilege/HIPAA) and security reviews that make it credible to market to lawyers and doctors — a segment far less price-sensitive than consumers — plus PR. That professional reach is why the high tier's <i>percentage</i> return, not just its dollars, comes out ahead.</li>
+  </ul>
+
+  <h2>Key sensitivities &amp; risks</h2>
+  <ul>
+    <li><b>Price is the biggest lever.</b> The backlog also floats $8.99. At that price (net ~$7.80) revenue and profit roughly halve and break-even slips later into year 2 — still profitable, but thinner.</li>
+    <li><b>Demand is the real unknown.</b> ThreadKeep is pre-launch; these are scenarios, not a forecast. A ±50% swing in sales moves the outcome proportionally. The growth curve — how fast monthly sales climb — is the single most influential input.</li>
+    <li><b>Execution capacity.</b> The risk register's top item is the single-developer bottleneck across QA, security, legal, marketing, and support. The mid and high upside depends on sustaining a marketing cadence one founder can realistically run — which is precisely where an operations partner changes the math.</li>
+  </ul>
+
+  <div class="foot">
+    Investment figures: ThreadKeep Launch Budget (Conservative NY revision). Revenue: illustrative demand scenarios, not a forecast. Prepared by Michael Conor Kushman · kushman.work · threadkeep.xyz
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  var money=function(v){return (v<0?'-$':'$')+Math.abs(Math.round(v)).toLocaleString();};
+  var moneyK=function(v){return (v<0?'-$':'$')+Math.abs(Math.round(v/1000))+'k';};
+  var grid='rgba(120,115,140,0.16)', tick='#7a7490';
+  new Chart(document.getElementById('line'),{type:'line',
+    data:{labels:['Year 1','Year 2','Year 3','Year 4','Year 5'],datasets:[
+      {label:'Low',data:[-3285,4536,15327,28098,42849],borderColor:'#378ADD',backgroundColor:'#378ADD',borderWidth:2,tension:.25,pointRadius:3,pointStyle:'circle'},
+      {label:'Mid',data:[-8757,10674,41985,85176,140247],borderColor:'#7F77DD',backgroundColor:'#7F77DD',borderWidth:2,borderDash:[6,4],tension:.25,pointRadius:3,pointStyle:'rect'},
+      {label:'High',data:[-9279,35622,110223,216504,354465],borderColor:'#D4537E',backgroundColor:'#D4537E',borderWidth:2,borderDash:[2,3],tension:.25,pointRadius:4,pointStyle:'triangle'}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return c.dataset.label+': '+money(c.parsed.y);}}}},
+      scales:{x:{grid:{display:false},ticks:{color:tick}},y:{ticks:{color:tick,callback:function(v){return moneyK(v);}},grid:{color:function(c){return c.tick.value===0?'rgba(120,115,140,0.5)':grid;}}}}}});
+  new Chart(document.getElementById('bar'),{type:'bar',
+    data:{labels:['Low','Mid','High'],datasets:[
+      {label:'Invested',data:[8631,30033,51435],backgroundColor:'#B4B2A9'},
+      {label:'Net profit',data:[42849,140247,354465],backgroundColor:'#1d9e75'}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return c.dataset.label+': '+money(c.parsed.y);}}}},
+      scales:{x:{grid:{display:false},ticks:{color:tick}},y:{ticks:{color:tick,callback:function(v){return moneyK(v);}},grid:{color:grid}}}}});
+</script>
+</body>
+</html>
